@@ -13,7 +13,7 @@ public class Main {
             num1 = scan.nextDouble();
             System.out.println("Введите операцию: + - * /");
             operator = scan.next().charAt(0);
-                try {
+
                 System.out.println("Введите второе число");
                 double num2 = scan.nextDouble();
                 switch (operator) {
@@ -30,19 +30,16 @@ public class Main {
                         System.out.println(result);
                         break;
                     case '/':
+                        if (num2 == 0) {
+                            System.out.println("Ошибка! На ноль делить нельзя");
+                            break;
+                        }
                         result = (double) num1 / num2;
                         System.out.println(result);
                         break;
                     default:
-                        System.out.println("Не верный оператор. Введите: - либо + либо * либо /");
+                        System.out.println("Неверный оператор. Введите: - либо + либо * либо /");
                 }
-                    if ((result == Double.POSITIVE_INFINITY) || (result ==
-                            Double.NEGATIVE_INFINITY)) {
-                        System.out.println("Нельзя делить на 0");
-                    }
-                    }catch (ArithmeticException e){
-                        System.out.println("Нельзя делить на 0");
-                    }
                     System.out.println("Желаете продолжить? yes/no ");
                     String answer = scanner.nextLine();
                     if (answer.equals("yes")) {
